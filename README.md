@@ -139,7 +139,7 @@ The following SQL queries were designed to address key business questions:
     
 **7. Analyze the average sales for each month and identify the best-performing month in each year.**
 **-- Using Subquery**
-select 
+``` select 
   month,
   avg_sales,
   rank() over(order by avg_sales desc) as rk
@@ -150,49 +150,59 @@ select
   from retail_sales
   group by month(sale_date)
   ) t;
-
+```
 **-- Without using subquery**
-  select 
+``` select 
     avg(total_sale) as avg_sale,
     month(sale_date) as month,
     rank() over(order by avg(total_sale) desc) as rk
     from retail_sales
     group by month;
+```
     
 **8. Identify the top 5 customers based on the highest total purchase value.**
-  select
+``` select
     customer_id,
     sum(total_sale) as total_sales
     from retail_sales
     group by customer_id
     order by total_sales desc
     limit 5;
+```
     
 **9. Calculate the number of unique customers who made purchases in each category.**
-  select
+``` select
     count(Distinct customer_id) as customers,
     category
     from retail_sales
     group by category;
+```
     
 **10. Categorize transactions into time-based shifts (Morning: <12, Afternoon: 12–17, Evening: >17) and count the number of orders in each shift.**
-  select *,
+```select *,
   CASE
 	    when hour(sale_time) < 12 then 'Morning'
       when HOUR(sale_time) between 12 and 17 then 'Afternoon'
       Else 'Evening'
   END as shift
   from retail_sales;
+```
 
-**Findings**
+## Findings
+
 **Customer Demographics:** The dataset represents customers across various age groups, with purchases distributed among categories such as Clothing and Beauty.
+
 **High-Value Transactions:** A significant number of transactions exceeded a total sale value of 1000, indicating the presence of high-value purchases.
+
 **Sales Trends:** Monthly analysis reveals fluctuations in sales, helping to identify peak and low-performing periods.
 **Customer Insights: **The analysis highlights top-spending customers and identifies the most popular product categories.
 Reports
+
 **Sales Summary:** A comprehensive overview of total sales, customer demographics, and category-wise performance.
+
 **Trend Analysis:** Insights into sales patterns across different months and time-based shifts.
+
 **Customer Insights:** Detailed reports on top customers and the count of unique customers across categories.
 
-**Conclusion**
+## Conclusion
 This project provides a strong foundation in SQL for aspiring data analysts, covering key areas such as database creation, data cleaning, exploratory data analysis, and business-focused querying. The insights derived from this analysis can support informed decision-making by uncovering trends in sales performance, customer behavior, and product demand.
