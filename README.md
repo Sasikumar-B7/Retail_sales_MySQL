@@ -87,35 +87,38 @@ WHERE
     OR cogs	 IS NULL
     OR total_sale IS NULL;
 ```
-**3. Data Analysis & Findings**
+## 3. Data Analysis & Findings
+
 The following SQL queries were designed to address key business questions:
 
-**1. Retrieve all sales records for transactions that occurred on 2022-11-05.**
-   select *
+## 1. Retrieve all sales records for transactions that occurred on 2022-11-05.
+
+  ``` select *
      from retail_sales
      where
-     sale_date = '2022-11-05';
+     sale_date = '2022-11-05'; ```
+
 **2. Fetch all transactions where the product category is 'Clothing' and the quantity sold exceeds 4 during November 2022.**
-   SELECT * 
+```   SELECT * 
     FROM retail_sales
     WHERE category = 'Clothing'
     AND DATE_FORMAT(sale_date, '%Y-%m') = '2022-11'
-    AND quantiy >= 4;
+    AND quantiy >= 4; ```
    
 **3. Calculate the total sales (total_sale) for each product category.**
-   select 
+ ```  select 
     category,
     sum(total_sale) as total_sales, 
     count(*) as total_orders
     from retail_sales
-    group by category;
+    group by category; ```
    
 **4. Determine the average age of customers who purchased items from the 'Beauty' category.**
-   select 
+```   select 
     round (avg(age), 2) as avg_age,
     category
     from retail_sales
-    where category = 'Beauty';
+    where category = 'Beauty'; ```
    
 **5. Identify all transactions where the total sales value exceeds 1000.**
     select *
