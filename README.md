@@ -1,13 +1,13 @@
 ## Retail Sales Analysis SQL Project
 
 **Project Overview**
+This project aims to showcase essential SQL skills and techniques commonly used by data analysts to explore, clean, and analyze retail sales data. It includes creating a retail sales database, conducting exploratory data analysis (EDA), and solving key business problems using SQL queries. The project is well-suited for beginners who want to strengthen their foundation in SQL and data analysis.
 
 **Project Title: Retail Sales Analysis**
 
 **Level: Beginner**
 
 **Database:** p1_retail_db
-This project aims to showcase essential SQL skills and techniques commonly used by data analysts to explore, clean, and analyze retail sales data. It includes creating a retail sales database, conducting exploratory data analysis (EDA), and solving key business problems using SQL queries. The project is well-suited for beginners who want to strengthen their foundation in SQL and data analysis.
 
 ## Objectives:
 
@@ -23,7 +23,8 @@ This project aims to showcase essential SQL skills and techniques commonly used 
 
 **Database Creation:**  The project starts by creating a database named p1_retail_db.
 
-**Table Creation:** A table named retail_sales is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
+**Table Creation:** 
+A table named retail_sales is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 
 /* Create database names sql_project_p1 */
 
@@ -92,40 +93,43 @@ WHERE
 The following SQL queries were designed to address key business questions:
 
 ## 1. Retrieve all sales records for transactions that occurred on 2022-11-05.
-
   ``` select *
      from retail_sales
      where
-     sale_date = '2022-11-05'; ```
+     sale_date = '2022-11-05';
+```
 
-**2. Fetch all transactions where the product category is 'Clothing' and the quantity sold exceeds 4 during November 2022.**
+## 2. Fetch all transactions where the product category is 'Clothing' and the quantity sold exceeds 4 during November 2022.
+
 ```   SELECT * 
     FROM retail_sales
     WHERE category = 'Clothing'
     AND DATE_FORMAT(sale_date, '%Y-%m') = '2022-11'
-    AND quantiy >= 4; ```
+    AND quantiy >= 4;
+```
    
-**3. Calculate the total sales (total_sale) for each product category.**
+## 3. Calculate the total sales (total_sale) for each product category.
  ```  select 
     category,
     sum(total_sale) as total_sales, 
     count(*) as total_orders
     from retail_sales
-    group by category; ```
-   
-**4. Determine the average age of customers who purchased items from the 'Beauty' category.**
+    group by category;
+```
+## 4. Determine the average age of customers who purchased items from the 'Beauty' category.
 ```   select 
     round (avg(age), 2) as avg_age,
     category
     from retail_sales
-    where category = 'Beauty'; ```
-   
-**5. Identify all transactions where the total sales value exceeds 1000.**
-    select *
+    where category = 'Beauty';
+```
+## 5. Identify all transactions where the total sales value exceeds 1000.
+```    select *
       from retail_sales
       where total_sale > 1000;
+```
    
-**6. Compute the total number of transactions made by each gender within each product category.**
+## 6. Compute the total number of transactions made by each gender within each product category.
     select 
       count(transactions_id) as num_transactions,
       category
