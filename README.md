@@ -30,6 +30,7 @@ This project aims to showcase essential SQL skills and techniques commonly used 
 ```create database sql_project_p1; ```
 
 /* Creating a tables called retail_sales under sql_project_p1 database */
+```
 Drop table if exists retail_sales;
 create table retail_sales (
 	transactions_id int primary key,
@@ -44,12 +45,18 @@ create table retail_sales (
 	cogs float,
 	total_sale float
 );
+```
 
-**Data Exploration & Cleaning**
+## Data Exploration & Cleaning
+
 **Record Count:** Calculate the total number of entries present in the dataset.
+
 **Customer Count:** Determine the number of unique customers within the dataset.
+
 **Category Count:** Identify the distinct product categories available in the data.
+
 **Null Value Check:** Detect any missing or null values and remove incomplete records to maintain data quality.
+```
 select *
 from retail_sales
 where
@@ -64,7 +71,8 @@ where
     OR price_per_unit IS NULL
     OR cogs	 IS NULL
     OR total_sale IS NULL;
-    
+```
+```    
 DELETE FROM RETAIL_SALES
 WHERE
 	transactions_id	IS NULL
@@ -78,7 +86,7 @@ WHERE
     OR price_per_unit IS NULL
     OR cogs	 IS NULL
     OR total_sale IS NULL;
-
+```
 **3. Data Analysis & Findings**
 The following SQL queries were designed to address key business questions:
 
