@@ -1,6 +1,6 @@
 ## Retail Sales Analysis SQL Project
 
-![Retail Sales]{https://github.com/Sasikumar-B7/Retail_sales_MySQL/blob/main/Retail%20Sales.png}
+![Retail Sales](https://github.com/Sasikumar-B7/Retail_sales_MySQL/blob/main/Retail%20Sales.png)
 
 
 **Project Overview**
