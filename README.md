@@ -11,11 +11,14 @@ This project aims to showcase essential SQL skills and techniques commonly used 
 
 ## Objectives:
 **Database Setup:** Design and populate a retail sales database using the provided dataset.
+
 **Data Cleaning:** Detect and remove records containing missing or null values to ensure data quality.
+
 **Exploratory Data Analysis (EDA):** Conduct initial analysis to understand patterns, trends, and structure of the dataset.
+
 **Business Analysis:** Utilize SQL queries to answer key business questions and generate meaningful insights from the sales data.
 
-**Project Structure**
+##Project Structure
 **Database Creation:**  The project starts by creating a database named p1_retail_db.
 **Table Creation:** A table named retail_sales is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 
