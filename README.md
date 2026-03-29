@@ -92,14 +92,14 @@ WHERE
 
 The following SQL queries were designed to address key business questions:
 
-## 1. Retrieve all sales records for transactions that occurred on 2022-11-05.
+**1. Retrieve all sales records for transactions that occurred on 2022-11-05.**
   ``` select *
      from retail_sales
      where
      sale_date = '2022-11-05';
 ```
 
-## 2. Fetch all transactions where the product category is 'Clothing' and the quantity sold exceeds 4 during November 2022.
+**2. Fetch all transactions where the product category is 'Clothing' and the quantity sold exceeds 4 during November 2022.**
 
 ```   SELECT * 
     FROM retail_sales
@@ -108,7 +108,7 @@ The following SQL queries were designed to address key business questions:
     AND quantiy >= 4;
 ```
    
-## 3. Calculate the total sales (total_sale) for each product category.
+**3. Calculate the total sales (total_sale) for each product category.**
  ```  select 
     category,
     sum(total_sale) as total_sales, 
@@ -116,20 +116,20 @@ The following SQL queries were designed to address key business questions:
     from retail_sales
     group by category;
 ```
-## 4. Determine the average age of customers who purchased items from the 'Beauty' category.
+**4. Determine the average age of customers who purchased items from the 'Beauty' category.**
 ```   select 
     round (avg(age), 2) as avg_age,
     category
     from retail_sales
     where category = 'Beauty';
 ```
-## 5. Identify all transactions where the total sales value exceeds 1000.
+**5. Identify all transactions where the total sales value exceeds 1000.**
 ```    select *
       from retail_sales
       where total_sale > 1000;
 ```
    
-## 6. Compute the total number of transactions made by each gender within each product category.
+**6. Compute the total number of transactions made by each gender within each product category.**
     select 
       count(transactions_id) as num_transactions,
       category
